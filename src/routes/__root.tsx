@@ -12,7 +12,8 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
-import { FoundationHeader, FoundationFooter } from "@/components/brand/foundation-preview";
+import { SiteHeader, SiteFooter } from "@/components/brand/site-chrome";
+import { emailInquiryHref, siteContent } from "@/lib/site-content";
 import { Button } from "@/components/ui/button";
 
 function NotFoundComponent() {
@@ -122,11 +123,11 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <FoundationHeader />
+      <SiteHeader items={siteContent.navigation} projectHref={emailInquiryHref} />
       <main id="main-content" tabIndex={-1}>
         <Outlet />
       </main>
-      <FoundationFooter />
+      <SiteFooter items={siteContent.navigation} emailHref={emailInquiryHref} />
     </QueryClientProvider>
   );
 }

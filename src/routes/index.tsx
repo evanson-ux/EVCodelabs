@@ -1,23 +1,24 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { FoundationPreview } from "@/components/brand/foundation-preview";
+import { Homepage } from "@/components/brand/homepage";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Design Foundation Preview | EVCodelabs" },
+      { title: "Digital Growth & IT Services in Kenya | EVCodelabs" },
       {
         name: "description",
         content:
-          "Review the EVCodelabs brand typography, color palette, and shared design foundation.",
+          "EVCodelabs helps businesses in Kenya and beyond grow online with website development, SEO, digital marketing, automation, AI, and custom software solutions.",
       },
-      { property: "og:title", content: "Design Foundation Preview | EVCodelabs" },
+      { property: "og:title", content: "Digital Growth & IT Services in Kenya | EVCodelabs" },
       {
         property: "og:description",
-        content: "EVCodelabs brand typography, color palette, and shared design foundation.",
+        content:
+          "Practical website development, digital marketing, automation, and software solutions for businesses in Kenya and beyond.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
-  component: FoundationPreview,
+  component: Homepage,
 });

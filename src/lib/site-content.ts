@@ -26,26 +26,51 @@ export const siteContent = {
         name: "BUILD",
         description:
           "Create the digital foundations your business needs to stand out and operate online.",
-        services:
-          "Branding, website design and development, e-commerce, web and mobile applications, custom software, and UI/UX design.",
+        services: [
+          "Branding",
+          "Website design and development",
+          "E-commerce",
+          "Web and mobile apps",
+          "Custom software",
+          "UI/UX design",
+        ],
       },
       {
         name: "GROW",
         description: "Help more of the right people discover your business and take action.",
-        services:
-          "SEO, local SEO, Google Business Profile, social media management, content, paid advertising, and lead generation.",
+        services: [
+          "SEO",
+          "Local SEO",
+          "Google Business Profile",
+          "Social media management",
+          "Content creation",
+          "Paid advertising",
+          "Lead generation",
+        ],
       },
       {
         name: "AUTOMATE",
         description: "Reduce repetitive tasks and make everyday business processes more efficient.",
-        services:
-          "Workflow automation, CRM systems, WhatsApp and email automation, booking systems, notifications, and reporting.",
+        services: [
+          "Workflow automation",
+          "CRM systems",
+          "WhatsApp and email automation",
+          "Booking systems",
+          "Notifications",
+          "Reporting",
+        ],
       },
       {
         name: "SCALE",
         description: "Improve your digital systems as your business, customers, and needs grow.",
-        services:
-          "AI integrations, business analytics, system integrations, performance optimization, advanced software, and ongoing technical support.",
+        services: [
+          "AI integrations",
+          "Business analytics",
+          "System integrations",
+          "Performance optimization",
+          "Advanced software",
+          "Ongoing technical support",
+        ],
       },
     ],
   },
@@ -53,7 +78,7 @@ export const siteContent = {
     title: "Technology should simplify business, not complicate it.",
     description:
       "Every business has different goals, challenges, and opportunities. We start by understanding yours, then identify the right digital solutions to help you move forward.",
-    steps: ["Understand your business.", "Find the right solution.", "Build and improve."],
+    steps: ["Understand your business", "Find the right solution", "Build and improve"],
   },
   caseStudies: {
     title: "Real challenges. Practical solutions. Meaningful progress.",
@@ -66,15 +91,18 @@ export const siteContent = {
   process: {
     title: "From your idea to a practical solution.",
     steps: [
-      { title: "Let's Talk", description: "understand the business, goals, and challenges." },
+      {
+        title: "Let's Talk",
+        description: "Understand your business, goals, challenges, and ideas.",
+      },
       {
         title: "Plan the Solution",
-        description: "agree on scope, priorities, timeline, and cost.",
+        description: "Identify a practical approach that fits your needs.",
       },
-      { title: "Build and Deliver", description: "create and review the agreed solution." },
+      { title: "Build and Deliver", description: "Develop and implement the agreed solution." },
       {
         title: "Improve and Grow",
-        description: "offer ongoing improvements and support where agreed.",
+        description: "Provide appropriate follow-up support and identify opportunities to improve.",
       },
     ],
   },
@@ -87,7 +115,7 @@ export const siteContent = {
     {
       question: "Who do you work with?",
       answer:
-        "We work with startups, small businesses, service providers, personal brands, e-commerce businesses, and established organizations.",
+        "We work with startups, small businesses, service providers, personal brands, e-commerce businesses, agencies, and established organizations.",
     },
     {
       question: "Do I need to know exactly what service I need?",
@@ -121,5 +149,4 @@ export const siteContent = {
 export type NavigationItem = { label: string; href: `#${string}` };
 export type FaqItem = { question: string; answer: string };
 
-// Contacts are deliberately not linked in the foundation preview.
-// Phase 2 can supply approved destinations to the shared presentation controls.
+export const emailInquiryHref = `mailto:${siteContent.email}?subject=${encodeURIComponent("Project inquiry — EVCodelabs")}&body=${encodeURIComponent("Hello EVCodelabs,\n\nI'd like to discuss a project.\n\nMy business:\nMy goals or challenges:\nThe solution I have in mind (if any):\n\nThank you.")}`;
