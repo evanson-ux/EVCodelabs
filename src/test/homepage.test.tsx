@@ -7,13 +7,23 @@ import { emailInquiryHref, siteContent } from "@/lib/site-content";
 afterEach(cleanup);
 
 function renderHomepage() {
-  return render(<><SiteHeader items={siteContent.navigation} projectHref={emailInquiryHref} /><main id="main-content"><Homepage /></main><SiteFooter items={siteContent.navigation} emailHref={emailInquiryHref} /></>);
+  return render(
+    <>
+      <SiteHeader items={siteContent.navigation} projectHref={emailInquiryHref} />
+      <main id="main-content">
+        <Homepage />
+      </main>
+      <SiteFooter items={siteContent.navigation} emailHref={emailInquiryHref} />
+    </>,
+  );
 }
 
 describe("EVCodelabs homepage", () => {
   it("renders the approved page sections in order with one main and one H1", () => {
     const { container } = renderHomepage();
-    expect(Array.from(container.querySelectorAll("main > section")).map(section => section.id)).toEqual(["", "services", "approach", "case-studies", "how-we-work", "faqs", "contact"]);
+    expect(
+      Array.from(container.querySelectorAll("main > section")).map((section) => section.id),
+    ).toEqual(["", "services", "approach", "case-studies", "how-we-work", "faqs", "contact"]);
     expect(container.querySelectorAll("main")).toHaveLength(1);
     expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent(siteContent.hero.title);
     expect(container.firstElementChild?.tagName).toBe("HEADER");
@@ -25,7 +35,8 @@ describe("EVCodelabs homepage", () => {
       expect(screen.getByRole("heading", { name: group.name })).toBeVisible();
       for (const service of group.services) expect(screen.getByText(service)).toBeVisible();
     }
-    for (const stage of siteContent.process.steps) expect(screen.getByText(stage.description)).toBeVisible();
+    for (const stage of siteContent.process.steps)
+      expect(screen.getByText(stage.description)).toBeVisible();
   });
   it("uses prepared email inquiries and keeps WhatsApp inactive", () => {
     const { container } = renderHomepage();
@@ -34,7 +45,8 @@ describe("EVCodelabs homepage", () => {
     const params = new URLSearchParams(query);
     expect(params.get("subject")).toBe("Project inquiry — EVCodelabs");
     expect(params.get("body")).toContain("I'd like to discuss a project.");
-    for (const link of container.querySelectorAll('a[href^="mailto:"]')) expect(link).toHaveAttribute("href", emailInquiryHref);
+    for (const link of container.querySelectorAll('a[href^="mailto:"]'))
+      expect(link).toHaveAttribute("href", emailInquiryHref);
     expect(screen.getByRole("button", { name: "WhatsApp — unavailable" })).toBeDisabled();
     expect(container.querySelector('a[href*="wa.me"], a[href*="whatsapp"]')).toBeNull();
   });

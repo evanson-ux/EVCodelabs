@@ -54,7 +54,9 @@ export function ServiceCard({
         <p className="mt-5 border-t border-border pt-5 text-muted-foreground">{services}</p>
       ) : (
         <ul className="service-list mt-5 border-t border-border pt-5 text-muted-foreground">
-          {services.map((service) => <li key={service}>{service}</li>)}
+          {services.map((service) => (
+            <li key={service}>{service}</li>
+          ))}
         </ul>
       )}
     </article>

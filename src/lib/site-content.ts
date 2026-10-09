@@ -26,22 +26,51 @@ export const siteContent = {
         name: "BUILD",
         description:
           "Create the digital foundations your business needs to stand out and operate online.",
-        services: ["Branding", "Website design and development", "E-commerce", "Web and mobile apps", "Custom software", "UI/UX design"],
+        services: [
+          "Branding",
+          "Website design and development",
+          "E-commerce",
+          "Web and mobile apps",
+          "Custom software",
+          "UI/UX design",
+        ],
       },
       {
         name: "GROW",
         description: "Help more of the right people discover your business and take action.",
-        services: ["SEO", "Local SEO", "Google Business Profile", "Social media management", "Content creation", "Paid advertising", "Lead generation"],
+        services: [
+          "SEO",
+          "Local SEO",
+          "Google Business Profile",
+          "Social media management",
+          "Content creation",
+          "Paid advertising",
+          "Lead generation",
+        ],
       },
       {
         name: "AUTOMATE",
         description: "Reduce repetitive tasks and make everyday business processes more efficient.",
-        services: ["Workflow automation", "CRM systems", "WhatsApp and email automation", "Booking systems", "Notifications", "Reporting"],
+        services: [
+          "Workflow automation",
+          "CRM systems",
+          "WhatsApp and email automation",
+          "Booking systems",
+          "Notifications",
+          "Reporting",
+        ],
       },
       {
         name: "SCALE",
         description: "Improve your digital systems as your business, customers, and needs grow.",
-        services: ["AI integrations", "Business analytics", "System integrations", "Performance optimization", "Advanced software", "Ongoing technical support"],
+        services: [
+          "AI integrations",
+          "Business analytics",
+          "System integrations",
+          "Performance optimization",
+          "Advanced software",
+          "Ongoing technical support",
+        ],
       },
     ],
   },
@@ -62,7 +91,10 @@ export const siteContent = {
   process: {
     title: "From your idea to a practical solution.",
     steps: [
-      { title: "Let's Talk", description: "Understand your business, goals, challenges, and ideas." },
+      {
+        title: "Let's Talk",
+        description: "Understand your business, goals, challenges, and ideas.",
+      },
       {
         title: "Plan the Solution",
         description: "Identify a practical approach that fits your needs.",
