@@ -13,7 +13,8 @@ export const Route = createFileRoute("/")({
       { property: "og:title", content: "Digital Growth & IT Services in Kenya | EVCodelabs" },
       {
         property: "og:description",
-        content: "Practical website development, digital marketing, automation, and software solutions for businesses in Kenya and beyond.",
+        content:
+          "Practical website development, digital marketing, automation, and software solutions for businesses in Kenya and beyond.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
