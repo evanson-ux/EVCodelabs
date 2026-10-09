@@ -10,10 +10,10 @@ export function BrandIdentity() {
 
 type NavigationProps = {
   items: readonly NavigationItem[];
-  projectHref?: string;
+  projectHref?: string | undefined;
 };
 
-function ProjectAction({ href }: { href?: string }) {
+function ProjectAction({ href }: { href?: string | undefined }) {
   return href ? <Button asChild><a href={href}>Discuss a Project<ArrowUpRight aria-hidden="true" /></a></Button> : <Button disabled title="Contact actions will be connected in a later phase">Discuss a Project<ArrowUpRight aria-hidden="true" /></Button>;
 }
 
