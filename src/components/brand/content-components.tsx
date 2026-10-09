@@ -38,7 +38,7 @@ export function ServiceCard({
 }: {
   name: string;
   description: string;
-  services: string;
+  services: string | readonly string[];
   icon?: ReactNode;
 }) {
   return (
@@ -50,7 +50,13 @@ export function ServiceCard({
       )}
       <h3>{name}</h3>
       <p className="mt-3">{description}</p>
-      <p className="mt-5 border-t border-border pt-5 text-muted-foreground">{services}</p>
+      {typeof services === "string" ? (
+        <p className="mt-5 border-t border-border pt-5 text-muted-foreground">{services}</p>
+      ) : (
+        <ul className="service-list mt-5 border-t border-border pt-5 text-muted-foreground">
+          {services.map((service) => <li key={service}>{service}</li>)}
+        </ul>
+      )}
     </article>
   );
 }
