@@ -8,3 +8,11 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+## EVCodelabs architecture
+- Retain React, TypeScript, TanStack Start, and Tailwind; use existing Radix/shadcn controls rather than adding dependencies for standard interactions.
+- Define shared visual roles and responsive typography in `src/styles.css`; this keeps brand updates consistent across reusable controls.
+- Keep owner-supplied content in `src/lib/site-content.ts` and prop-driven brand components in `src/components/brand`; this separates business wording from presentation.
+- Keep a single main landmark around the root Outlet; shared header and footer live outside it for consistent page semantics.
+- The index currently renders only a temporary foundation preview; replace it with homepage composition only after the owner authorizes the next phase.
+- Supply contact destinations to presentation controls explicitly; missing destinations render inactive controls rather than fabricated actions.
