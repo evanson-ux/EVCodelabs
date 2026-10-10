@@ -13,7 +13,7 @@ import { useEffect, type ReactNode } from "react";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { SiteHeader, SiteFooter } from "@/components/brand/site-chrome";
-import { emailInquiryHref, siteContent } from "@/lib/site-content";
+import { emailInquiryHref, siteContent, whatsappInquiryHref } from "@/lib/site-content";
 import { Button } from "@/components/ui/button";
 
 function NotFoundComponent() {
@@ -127,7 +127,11 @@ function RootComponent() {
       <main id="main-content" tabIndex={-1}>
         <Outlet />
       </main>
-      <SiteFooter items={siteContent.navigation} emailHref={emailInquiryHref} />
+      <SiteFooter
+        items={siteContent.navigation}
+        emailHref={emailInquiryHref}
+        whatsappHref={whatsappInquiryHref}
+      />
     </QueryClientProvider>
   );
 }

@@ -16,3 +16,5 @@
 - Keep a single main landmark around the root Outlet; shared header and footer live outside it for consistent page semantics.
 - Compose the single scrolling homepage in the brand homepage module and render shared navigation/footer around the root Outlet; this preserves approved section ordering without duplicate chrome or main landmarks.
 - Supply contact destinations to presentation controls explicitly; missing destinations render inactive controls rather than fabricated actions.
+
+- Production origin and WhatsApp number are configured only in `src/lib/site-content.ts` (`siteUrl`, `whatsapp`); canonical, og:url, and WhatsApp links derive from them so nothing is published before it is verified.
