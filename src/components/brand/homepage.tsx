@@ -15,7 +15,7 @@ import {
   SectionHeading,
   ServiceCard,
 } from "@/components/brand/content-components";
-import { emailInquiryHref, siteContent } from "@/lib/site-content";
+import { emailInquiryHref, siteContent, whatsappInquiryHref } from "@/lib/site-content";
 import workspaceImage from "@/assets/homepage-workspace.jpg";
 
 const serviceIcons = [Code2, ChartNoAxesCombined, Workflow, Blocks];
@@ -170,15 +170,24 @@ export function Homepage() {
               <Mail size={18} aria-hidden="true" />
               {siteContent.email}
             </a>
-            <Button
-              disabled
-              variant="ghost"
-              className="mt-2"
-              title="WhatsApp is unavailable until a contact number is supplied"
-            >
-              <MessageCircle aria-hidden="true" />
-              WhatsApp — unavailable
-            </Button>
+            {whatsappInquiryHref ? (
+              <Button asChild variant="ghost" className="mt-2">
+                <a href={whatsappInquiryHref} target="_blank" rel="noopener noreferrer">
+                  <MessageCircle aria-hidden="true" />
+                  Chat on WhatsApp
+                </a>
+              </Button>
+            ) : (
+              <Button
+                disabled
+                variant="ghost"
+                className="mt-2"
+                title="WhatsApp is unavailable until a contact number is supplied"
+              >
+                <MessageCircle aria-hidden="true" />
+                WhatsApp — unavailable
+              </Button>
+            )}
           </div>
         </div>
       </section>

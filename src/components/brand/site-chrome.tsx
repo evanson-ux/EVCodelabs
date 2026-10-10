@@ -110,8 +110,8 @@ export function SiteFooter({
   whatsappHref,
 }: {
   items: readonly NavigationItem[];
-  emailHref?: string;
-  whatsappHref?: string;
+  emailHref?: string | undefined;
+  whatsappHref?: string | undefined;
 }) {
   return (
     <footer className="border-t border-border py-10">
@@ -141,7 +141,7 @@ export function SiteFooter({
             )}
             {whatsappHref ? (
               <Button asChild variant="link">
-                <a href={whatsappHref}>
+                <a href={whatsappHref} target="_blank" rel="noopener noreferrer">
                   <MessageCircle aria-hidden="true" />
                   WhatsApp
                 </a>
