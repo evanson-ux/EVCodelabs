@@ -127,7 +127,11 @@ function RootComponent() {
       <main id="main-content" tabIndex={-1}>
         <Outlet />
       </main>
-      <SiteFooter items={siteContent.navigation} emailHref={emailInquiryHref} whatsappHref={whatsappInquiryHref} />
+      <SiteFooter
+        items={siteContent.navigation}
+        emailHref={emailInquiryHref}
+        whatsappHref={whatsappInquiryHref}
+      />
     </QueryClientProvider>
   );
 }
