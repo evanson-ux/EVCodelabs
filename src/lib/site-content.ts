@@ -1,7 +1,10 @@
 export const siteContent = {
   name: "EVCodelabs",
   email: "evcodelabs01@gmail.com",
-  whatsapp: null,
+  /** Verified WhatsApp number in international digits only, e.g. "2547XXXXXXXX". null = inactive. */
+  whatsapp: null as string | null,
+  /** Confirmed production origin, e.g. "https://example.com". null = no canonical/sitemap URLs. */
+  siteUrl: null as string | null,
   navigation: [
     { label: "Services", href: "#services" },
     { label: "Our Approach", href: "#approach" },
