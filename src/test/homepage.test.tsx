@@ -26,7 +26,9 @@ function openContactModal() {
     name: "Discuss a Project",
   });
 
-  fireEvent.click(discussButtons[0]);
+  const discussButton = discussButtons[0];
+  if (!discussButton) throw new Error("Discuss a Project button was not found");
+  fireEvent.click(discussButton);
 
   return screen.getByRole("dialog");
 }
