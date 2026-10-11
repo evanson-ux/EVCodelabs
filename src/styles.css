@@ -1,6 +1,7 @@
 @import "tailwindcss" source(none);
 @source "../src";
 @import "tw-animate-css";
+@import "@fontsource-variable/manrope/wght.css";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -19,7 +20,7 @@
  */
 
 @theme inline {
-  --font-sans: "Manrope", system-ui, sans-serif;
+  --font-sans: "Manrope Variable", system-ui, sans-serif;
   --color-brand-blue: var(--brand-blue);
   --color-brand-sage: var(--brand-sage);
   --color-brand-charcoal: var(--brand-charcoal);

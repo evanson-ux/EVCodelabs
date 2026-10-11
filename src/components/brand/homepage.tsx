@@ -17,6 +17,10 @@ import {
 } from "@/components/brand/content-components";
 import { emailInquiryHref, siteContent, whatsappInquiryHref } from "@/lib/site-content";
 import workspaceImage from "@/assets/homepage-workspace.jpg";
+import workspaceImage480 from "@/assets/homepage-workspace-480.jpg";
+import workspaceImage768 from "@/assets/homepage-workspace-768.jpg";
+import workspaceImage1200 from "@/assets/homepage-workspace-1200.jpg";
+import workspaceImage1600 from "@/assets/homepage-workspace-1600.jpg";
 
 const serviceIcons = [Code2, ChartNoAxesCombined, Workflow, Blocks];
 
@@ -26,6 +30,8 @@ export function Homepage() {
       <section className="homepage-hero" aria-labelledby="hero-title">
         <img
           src={workspaceImage}
+          srcSet={`${workspaceImage480} 480w, ${workspaceImage768} 768w, ${workspaceImage1200} 1200w, ${workspaceImage1600} 1600w, ${workspaceImage} 1920w`}
+          sizes="100vw"
           alt=""
           className="hero-image"
           width={1920}
