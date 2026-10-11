@@ -3,8 +3,8 @@ export const siteContent = {
   email: "evcodelabs01@gmail.com",
   /** Verified WhatsApp number in international digits only, e.g. "2547XXXXXXXX". null = inactive. */
   whatsapp: null as string | null,
-  /** Confirmed production origin, e.g. "https://example.com". null = no canonical/sitemap URLs. */
-  siteUrl: null as string | null,
+  /** Confirmed production origin. null = no canonical/sitemap URLs. */
+  siteUrl: "https://www.evcodelabs.co.ke",
   navigation: [
     { label: "Services", href: "#services" },
     { label: "Our Approach", href: "#approach" },
@@ -102,7 +102,10 @@ export const siteContent = {
         title: "Plan the Solution",
         description: "Identify a practical approach that fits your needs.",
       },
-      { title: "Build and Deliver", description: "Develop and implement the agreed solution." },
+      {
+        title: "Build and Deliver",
+        description: "Develop and implement the agreed solution.",
+      },
       {
         title: "Improve and Grow",
         description: "Provide appropriate follow-up support and identify opportunities to improve.",
@@ -154,7 +157,7 @@ export type FaqItem = { question: string; answer: string };
 
 export const emailInquiryHref = `mailto:${siteContent.email}?subject=${encodeURIComponent("Project inquiry — EVCodelabs")}&body=${encodeURIComponent("Hello EVCodelabs,\n\nI'd like to discuss a project.\n\nMy business:\nMy goals or challenges:\nThe solution I have in mind (if any):\n\nThank you.")}`;
 
-/** Becomes a working WhatsApp link only once `siteContent.whatsapp` holds a verified number. */
+/** Becomes a working WhatsApp link only once siteContent.whatsapp holds a verified number. */
 export const whatsappInquiryHref: string | undefined = siteContent.whatsapp
   ? `https://wa.me/${siteContent.whatsapp}?text=${encodeURIComponent("Hello EVCodelabs, I'd like to discuss a project for my business.")}`
   : undefined;
