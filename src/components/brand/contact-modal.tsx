@@ -22,7 +22,6 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { siteContent } from "@/lib/site-content";
-import { cn } from "@/lib/utils";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -65,6 +64,22 @@ export function ContactModal() {
     }
   };
 
+  const values = form.watch();
+
+  const subject = "Business Inquiry — EVCodelabs";
+
+  const body = `Name: ${values.name ?? ""}\nEmail: ${values.email ?? ""}\n\nMessage:\n${values.message ?? ""}`;
+
+  // Desktop: Open Gmail Compose in a separate browser tab.
+  const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(
+    "evcodelabs01@gmail.com",
+  )}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+  // Mobile: Request the phone's configured email application.
+  const mobileEmailUrl = `mailto:evcodelabs01@gmail.com?subject=${encodeURIComponent(
+    subject,
+  )}&body=${encodeURIComponent(body)}`;
+
   return (
     <Dialog open={isOpen} onOpenChange={(open) => !open && handleClose()}>
       <DialogContent className="max-w-md" onPointerDown={handleBackdropClick}>
@@ -74,7 +89,7 @@ export function ContactModal() {
         </DialogHeader>
 
         <Form {...form}>
-          <form className="space-y-4">
+          <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
             <FormField
               control={form.control}
               name="name"
@@ -92,6 +107,7 @@ export function ContactModal() {
                 </FormItem>
               )}
             />
+
             <FormField
               control={form.control}
               name="email"
@@ -110,6 +126,7 @@ export function ContactModal() {
                 </FormItem>
               )}
             />
+
             <FormField
               control={form.control}
               name="message"
@@ -128,23 +145,22 @@ export function ContactModal() {
                 </FormItem>
               )}
             />
+
             <DialogFooter className="space-y-2 sm:space-y-0 sm:space-x-2">
-              <Button
-                type="button"
-                variant="link"
-                onClick={() => {
-                  const values = form.getValues();
-                  const subject = "Business Inquiry — EVCodelabs";
-                  const body = `Name: ${values.name}\nEmail: ${values.email}\n\nMessage:\n${values.message}`;
-                  const url = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(
-                    "evcodelabs01@gmail.com",
-                  )}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-                  window.open(url, "_blank", "noopener,noreferrer");
-                }}
-                className="w-full sm:w-auto"
-              >
-                <Mail className="mr-2 h-4 w-4" aria-hidden="true" />
-                {siteContent.contactModal.mailtoFallback}
+              {/* Mobile: Open the configured email application */}
+              <Button asChild variant="link" className="w-full sm:hidden">
+                <a href={mobileEmailUrl}>
+                  <Mail className="mr-2 h-4 w-4" aria-hidden="true" />
+                  {siteContent.contactModal.mailtoFallback}
+                </a>
+              </Button>
+
+              {/* Desktop: Open Gmail Compose in one new tab */}
+              <Button asChild variant="link" className="hidden w-full sm:inline-flex sm:w-auto">
+                <a href={gmailUrl} target="_blank" rel="noopener noreferrer">
+                  <Mail className="mr-2 h-4 w-4" aria-hidden="true" />
+                  {siteContent.contactModal.mailtoFallback}
+                </a>
               </Button>
             </DialogFooter>
           </form>
