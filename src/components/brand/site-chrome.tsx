@@ -16,7 +16,9 @@ export function BrandIdentity() {
     <img
       src="/EVCodelabs%20secondary%20logo%28horizontal%29.png"
       alt="EVCodelabs — Your Digital Growth Partner"
-      className="block h-[42px] w-[150px] object-contain sm:h-[48px] sm:w-[170px] lg:h-[55px] lg:w-[190px]"
+      width={1332}
+      height={333}
+      className="block h-[42px] w-[150px] shrink-0 object-contain md:h-[48px] md:w-[170px] lg:h-[55px] lg:w-[190px]"
     />
   );
 }
