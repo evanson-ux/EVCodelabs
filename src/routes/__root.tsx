@@ -15,6 +15,9 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 import { SiteHeader, SiteFooter } from "@/components/brand/site-chrome";
 import { emailInquiryHref, siteContent, whatsappInquiryHref } from "@/lib/site-content";
 import { Button } from "@/components/ui/button";
+import { Toaster } from "@/components/ui/sonner";
+import { ContactModalProvider } from "@/components/brand/contact-modal-context";
+import { ContactModal } from "@/components/brand/contact-modal";
 
 function NotFoundComponent() {
   return (
@@ -117,15 +120,19 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <SiteHeader items={siteContent.navigation} projectHref={emailInquiryHref} />
-      <main id="main-content" tabIndex={-1}>
-        <Outlet />
-      </main>
-      <SiteFooter
-        items={siteContent.navigation}
-        emailHref={emailInquiryHref}
-        whatsappHref={whatsappInquiryHref}
-      />
+      <ContactModalProvider>
+        <SiteHeader items={siteContent.navigation} />
+        <main id="main-content" tabIndex={-1}>
+          <Outlet />
+        </main>
+        <SiteFooter
+          items={siteContent.navigation}
+          emailHref={emailInquiryHref}
+          whatsappHref={whatsappInquiryHref}
+        />
+        <ContactModal />
+        <Toaster position="bottom-right" />
+      </ContactModalProvider>
     </QueryClientProvider>
   );
 }

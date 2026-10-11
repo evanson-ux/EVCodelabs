@@ -15,6 +15,7 @@ import {
   SectionHeading,
   ServiceCard,
 } from "@/components/brand/content-components";
+import { useContactModal } from "@/components/brand/contact-modal-context";
 import { emailInquiryHref, siteContent, whatsappInquiryHref } from "@/lib/site-content";
 import workspaceImage from "@/assets/homepage-workspace.jpg";
 import workspaceImage480 from "@/assets/homepage-workspace-480.jpg";
@@ -25,6 +26,7 @@ import workspaceImage1600 from "@/assets/homepage-workspace-1600.jpg";
 const serviceIcons = [Code2, ChartNoAxesCombined, Workflow, Blocks];
 
 export function Homepage() {
+  const { open } = useContactModal();
   return (
     <>
       <section className="homepage-hero" aria-labelledby="hero-title">
@@ -47,11 +49,9 @@ export function Homepage() {
             <h1 id="hero-title">{siteContent.hero.title}</h1>
             <p className="mt-6 text-muted-foreground">{siteContent.hero.description}</p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <Button asChild size="lg">
-                <a href={emailInquiryHref}>
-                  {siteContent.hero.primaryAction}
-                  <ArrowUpRight aria-hidden="true" />
-                </a>
+              <Button size="lg" onClick={open}>
+                {siteContent.hero.primaryAction}
+                <ArrowUpRight aria-hidden="true" />
               </Button>
               <Button asChild size="lg" variant="outline">
                 <a href="#services">
@@ -85,11 +85,9 @@ export function Homepage() {
           </div>
           <div className="service-inquiry mt-8 border-t border-border pt-8">
             <p className="font-medium">{siteContent.services.action}</p>
-            <Button asChild variant="link">
-              <a href={emailInquiryHref}>
-                Discuss your needs
-                <ArrowUpRight aria-hidden="true" />
-              </a>
+            <Button variant="link" onClick={open}>
+              Discuss your needs
+              <ArrowUpRight aria-hidden="true" />
             </Button>
           </div>
         </div>
@@ -166,11 +164,9 @@ export function Homepage() {
             description={siteContent.contact.description}
           />
           <div className="contact-actions">
-            <Button asChild size="lg">
-              <a href={emailInquiryHref}>
-                {siteContent.contact.action}
-                <ArrowUpRight aria-hidden="true" />
-              </a>
+            <Button size="lg" onClick={open}>
+              {siteContent.contact.action}
+              <ArrowUpRight aria-hidden="true" />
             </Button>
             <a href={emailInquiryHref} className="nav-link mt-4 gap-2 text-primary">
               <Mail size={18} aria-hidden="true" />

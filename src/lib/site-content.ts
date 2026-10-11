@@ -2,7 +2,7 @@ export const siteContent = {
   name: "EVCodelabs",
   email: "evcodelabs01@gmail.com",
   /** Verified WhatsApp number in international digits only, e.g. "2547XXXXXXXX". null = inactive. */
-  whatsapp: null as string | null,
+  whatsapp: "254740507511" as string | null,
   /** Confirmed production origin. null = no canonical/sitemap URLs. */
   siteUrl: "https://www.evcodelabs.co.ke",
   navigation: [
@@ -149,6 +149,30 @@ export const siteContent = {
     description:
       "Whether you need to establish your online presence, reach more customers, improve your systems, or explore a new idea, let's talk about what your business needs.",
     action: "Start a Conversation",
+  },
+  contactModal: {
+    title: "Discuss a Project",
+    description: "Tell us about your project and we'll get back to you within one business day.",
+    nameLabel: "Your Name",
+    namePlaceholder: "Enter your name",
+    emailLabel: "Work Email",
+    emailPlaceholder: "Enter your email",
+    messageLabel: "Project Details",
+    messagePlaceholder: "Hello EVCodelabs, I'd like to discuss a project for my business.",
+    submitLabel: "Send Message",
+    submittingLabel: "Sending…",
+    successTitle: "Message Sent",
+    successDescription:
+      "Thanks for reaching out. We'll review your project details and respond soon.",
+    errorTitle: "Something Went Wrong",
+    errorDescription: "Please try again Email Us Directly at evcodelabs01@gmail.com.",
+    mailtoFallback: "Email Us Directly",
+    validation: {
+      nameRequired: "Please enter your name",
+      emailRequired: "Please enter your email",
+      emailInvalid: "Please enter a valid email address",
+      messageRequired: "Please describe your project",
+    },
   },
 } as const;
 

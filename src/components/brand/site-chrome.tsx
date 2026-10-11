@@ -9,6 +9,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { siteContent, type NavigationItem } from "@/lib/site-content";
+import { useContactModal } from "@/components/brand/contact-modal-context";
 
 export function BrandIdentity() {
   return (
@@ -25,27 +26,21 @@ export function BrandIdentity() {
 
 type NavigationProps = {
   items: readonly NavigationItem[];
-  projectHref?: string | undefined;
 };
 
 function ProjectAction({ href }: { href?: string | undefined }) {
-  return href ? (
-    <Button asChild>
-      <a href={href}>
-        Discuss a Project
-        <ArrowUpRight aria-hidden="true" />
-      </a>
-    </Button>
-  ) : (
-    <Button disabled title="Contact actions will be connected in a later phase">
+  const { open } = useContactModal();
+  return (
+    <Button onClick={open}>
       Discuss a Project
       <ArrowUpRight aria-hidden="true" />
     </Button>
   );
 }
 
-export function MobileNavigation({ items, projectHref }: NavigationProps) {
+export function MobileNavigation({ items }: NavigationProps) {
   const [open, setOpen] = useState(false);
+  const { open: openModal } = useContactModal();
   return (
     <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger asChild>
@@ -63,20 +58,24 @@ export function MobileNavigation({ items, projectHref }: NavigationProps) {
             </a>
           ))}
         </nav>
-        <div
-          className="mt-8"
-          onClick={() => {
-            if (projectHref) setOpen(false);
-          }}
-        >
-          <ProjectAction href={projectHref} />
+        <div className="mt-8">
+          <Button
+            onClick={() => {
+              setOpen(false);
+              openModal();
+            }}
+            className="w-full"
+          >
+            Discuss a Project
+            <ArrowUpRight aria-hidden="true" />
+          </Button>
         </div>
       </SheetContent>
     </Sheet>
   );
 }
 
-export function SiteHeader({ items, projectHref }: NavigationProps) {
+export function SiteHeader({ items }: NavigationProps) {
   return (
     <header className="site-header">
       <a className="skip-link" href="#main-content">
@@ -94,10 +93,10 @@ export function SiteHeader({ items, projectHref }: NavigationProps) {
               </a>
             ))}
           </nav>
-          <ProjectAction href={projectHref} />
+          <ProjectAction />
         </div>
         <div className="lg:hidden">
-          <MobileNavigation items={items} projectHref={projectHref} />
+          <MobileNavigation items={items} />
         </div>
       </div>
     </header>
