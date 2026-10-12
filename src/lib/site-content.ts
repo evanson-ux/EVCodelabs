@@ -116,32 +116,32 @@ export const siteContent = {
     {
       question: "What services does EVCodelabs provide?",
       answer:
-        "We help businesses build their online presence, attract customers, improve processes, and grow using services such as website development, SEO, branding, software development, automation, AI integration, and digital marketing.",
+        "We help businesses establish, improve, and grow online through four solution areas: Build, Grow, Automate, and Scale. Our services include branding, website and app development, e-commerce, SEO, digital marketing, workflow automation, custom software, AI integrations, and technical support.",
     },
     {
       question: "Who do you work with?",
       answer:
-        "We work with startups, small businesses, service providers, personal brands, e-commerce businesses, agencies, and established organizations.",
+        "We work with startups, small businesses, service providers, personal brands, e-commerce businesses, and established organizations. Whether you're building your online presence from the ground up or improving existing digital systems, we help you find practical solutions suited to your business goals.",
     },
     {
       question: "Do I need to know exactly what service I need?",
       answer:
-        "No. Tell us about your goals or challenges, and we can discuss which solutions may be suitable for your business.",
+        "Not at all. Start by telling us about your business, what you're trying to achieve, or what challenges you're facing. We'll discuss your needs with you and explore the digital solutions that may be suitable for your goals.",
     },
     {
       question: "Can you work with businesses outside Kenya?",
       answer:
-        "Yes. EVCodelabs aims to serve businesses in Kenya and international markets. Delivery arrangements depend on the project and service required.",
+        "Yes. We can work remotely with suitable businesses in Kenya and other countries. We'll discuss your project's requirements, communication, and delivery arrangements before work begins.",
     },
     {
       question: "How much do your services cost?",
       answer:
-        "Pricing depends on the work involved, required features, and project scope. Contact us to discuss your needs and receive a proposal.",
+        "Pricing depends on your goals, the scope of work, and the features or services required. Once we understand your needs, we'll outline the proposed solution, discuss the costs, and provide a proposal where appropriate.",
     },
     {
       question: "Do you provide support after a project is completed?",
       answer:
-        "Support and maintenance can be discussed and included in the project agreement where required.",
+        "Yes. Post-project support and maintenance can be arranged depending on the solution and your needs. We'll agree on the available support, responsibilities, and any associated costs as part of the project agreement.",
     },
   ],
   contact: {
