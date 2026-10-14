@@ -28,7 +28,7 @@ export const Route = createFileRoute("/services/")({
 function ServicesPage() {
   const { pillar } = Route.useSearch();
   const navigate = Route.useNavigate();
-  const filter: FilterValue = pillar ?? "all";
+  const filter: FilterValue = isPillarId(pillar) ? pillar : "all";
   return (
     <ServicesOverview
       filter={filter}
