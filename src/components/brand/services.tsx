@@ -99,7 +99,7 @@ export function ServicesOverview({
         <div className="content-width">
           <p className="eyebrow mb-4 text-primary">Our Services</p>
           <h1 id="services-title" className="reading-width">
-            Digital solutions built around your business goals.
+            Explore Practical Digital Solutions That Move Your Business Forward.
           </h1>
           <p className="reading-width mt-6 text-muted-foreground">
             EVCodelabs offers practical digital services to help businesses establish their online
