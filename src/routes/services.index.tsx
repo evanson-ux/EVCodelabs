@@ -9,7 +9,7 @@ const description =
 
 export const Route = createFileRoute("/services/")({
   validateSearch: (search: Record<string, unknown>): { pillar?: PillarId } =>
-    isPillarId(search.pillar) ? { pillar: search.pillar } : {},
+    isPillarId(search["pillar"]) ? { pillar: search["pillar"] } : {},
   head: () => ({
     meta: [
       { title },
