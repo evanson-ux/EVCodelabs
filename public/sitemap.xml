@@ -1,6 +1,48 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.evcodelabs.co.ke/</loc>
+  </url>
+  <url>
+    <loc>https://www.evcodelabs.co.ke/services</loc>
+  </url>
+  <url>
+    <loc>https://www.evcodelabs.co.ke/services/website-development</loc>
+  </url>
+  <url>
+    <loc>https://www.evcodelabs.co.ke/services/branding</loc>
+  </url>
+  <url>
+    <loc>https://www.evcodelabs.co.ke/services/ecommerce-development</loc>
+  </url>
+  <url>
+    <loc>https://www.evcodelabs.co.ke/services/custom-software-development</loc>
+  </url>
+  <url>
+    <loc>https://www.evcodelabs.co.ke/services/seo</loc>
+  </url>
+  <url>
+    <loc>https://www.evcodelabs.co.ke/services/social-media-management</loc>
+  </url>
+  <url>
+    <loc>https://www.evcodelabs.co.ke/services/local-seo</loc>
+  </url>
+  <url>
+    <loc>https://www.evcodelabs.co.ke/services/whatsapp-email-automation</loc>
+  </url>
+  <url>
+    <loc>https://www.evcodelabs.co.ke/services/business-automation</loc>
+  </url>
+  <url>
+    <loc>https://www.evcodelabs.co.ke/services/booking-automation</loc>
+  </url>
+  <url>
+    <loc>https://www.evcodelabs.co.ke/services/ai-solutions</loc>
+  </url>
+  <url>
+    <loc>https://www.evcodelabs.co.ke/services/business-analytics</loc>
+  </url>
+  <url>
+    <loc>https://www.evcodelabs.co.ke/services/technical-support</loc>
   </url>
 </urlset>

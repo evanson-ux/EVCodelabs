@@ -100,7 +100,7 @@ export function SiteHeader({ items }: NavigationProps) {
       </a>
 
       <div className="content-width header-inner">
-        <a href="#main-content" aria-label="EVCodelabs — back to top">
+        <a href="/" aria-label="EVCodelabs — home">
           <BrandIdentity />
         </a>
 

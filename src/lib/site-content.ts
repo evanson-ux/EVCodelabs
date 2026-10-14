@@ -6,10 +6,10 @@ export const siteContent = {
   /** Confirmed production origin. null = no canonical/sitemap URLs. */
   siteUrl: "https://www.evcodelabs.co.ke",
   navigation: [
-    { label: "Services", href: "#services" },
-    { label: "Our Approach", href: "#approach" },
-    { label: "Case Studies", href: "#case-studies" },
-    { label: "Contact", href: "#contact" },
+    { label: "Services", href: "/#services" },
+    { label: "Our Approach", href: "/#approach" },
+    { label: "Case Studies", href: "/#case-studies" },
+    { label: "Contact", href: "/#contact" },
   ],
   hero: {
     eyebrow: "YOUR DIGITAL GROWTH PARTNER",
@@ -176,7 +176,7 @@ export const siteContent = {
   },
 } as const;
 
-export type NavigationItem = { label: string; href: `#${string}` };
+export type NavigationItem = { label: string; href: string };
 export type FaqItem = { question: string; answer: string };
 
 export const emailInquiryHref = `mailto:${siteContent.email}?subject=${encodeURIComponent("Project inquiry — EVCodelabs")}&body=${encodeURIComponent("Hello EVCodelabs,\n\nI'd like to discuss a project.\n\nMy business:\nMy goals or challenges:\nThe solution I have in mind (if any):\n\nThank you.")}`;
