@@ -1,5 +1,4 @@
 import {
-  ArrowDown,
   ArrowUpRight,
   Blocks,
   ChartNoAxesCombined,
@@ -8,6 +7,7 @@ import {
   MessageCircle,
   Workflow,
 } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
 import {
   CaseStudyCard,
@@ -54,10 +54,10 @@ export function Homepage() {
                 <ArrowUpRight aria-hidden="true" />
               </Button>
               <Button asChild size="lg" variant="outline">
-                <a href="#services">
+                <Link to="/services">
                   {siteContent.hero.secondaryAction}
-                  <ArrowDown aria-hidden="true" />
-                </a>
+                  <ArrowUpRight aria-hidden="true" />
+                </Link>
               </Button>
             </div>
           </div>

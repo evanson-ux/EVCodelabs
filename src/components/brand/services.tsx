@@ -232,11 +232,10 @@ export function ServiceDetail({ service }: { service: Service }) {
         </div>
       </section>
 
-      <section className="section-space" aria-labelledby="challenges-title">
+      <section className="section-space" aria-label="Business challenges">
         <div className="content-width detail-split">
           <SectionHeading eyebrow="Challenges" title="Problems this service can help with" />
           <div>
-            <h2 id="challenges-title" className="sr-only">Common business challenges</h2>
             <ul className="service-list detail-list">
               {service.challenges.map((item) => <li key={item}>{item}</li>)}
             </ul>

@@ -1,5 +1,11 @@
 import { cleanup, fireEvent, render, screen, within } from "@testing-library/react";
-import { afterEach, describe, expect, it } from "vitest";
+import { afterEach, describe, expect, it, vi } from "vitest";
+
+vi.mock("@tanstack/react-router", () => ({
+  Link: ({ to, children, ...rest }: { to: string; children: React.ReactNode }) => (
+    <a href={to} {...rest}>{children}</a>
+  ),
+}));
 import { Homepage } from "@/components/brand/homepage";
 import { SiteFooter, SiteHeader } from "@/components/brand/site-chrome";
 import { emailInquiryHref, siteContent } from "@/lib/site-content";
@@ -107,7 +113,7 @@ describe("EVCodelabs homepage", () => {
     fireEvent.click(screen.getByRole("button", { name: "Open navigation" }));
 
     const dialog = screen.getByRole("dialog");
-    const contactLink = dialog.querySelector('a[href="#contact"]');
+    const contactLink = dialog.querySelector('a[href="/#contact"]');
 
     expect(contactLink).toBeTruthy();
 
