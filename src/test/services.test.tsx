@@ -53,13 +53,21 @@ describe("service catalogue", () => {
   });
 
   it("accepts only valid pillar filters", () => {
-    for (const pillar of ["build", "grow", "automate", "scale"]) expect(isPillarId(pillar)).toBe(true);
-    for (const value of [undefined, null, "bogus", "ALL", "toString", ["build"], 1]) expect(isPillarId(value)).toBe(false);
+    for (const pillar of ["build", "grow", "automate", "scale"])
+      expect(isPillarId(pillar)).toBe(true);
+    for (const value of [undefined, null, "bogus", "ALL", "toString", ["build"], 1])
+      expect(isPillarId(value)).toBe(false);
   });
 
   it("provides complete detail content and distinct inquiries for every service", () => {
     for (const service of services) {
-      for (const items of [service.challenges, service.included, service.dependsOnProject, service.process, service.faqs]) {
+      for (const items of [
+        service.challenges,
+        service.included,
+        service.dependsOnProject,
+        service.process,
+        service.faqs,
+      ]) {
         expect(items.length, service.slug).toBeGreaterThan(0);
       }
       expect(new Set(service.faqs.map((faq) => faq.question)).size).toBe(service.faqs.length);
@@ -68,7 +76,8 @@ describe("service catalogue", () => {
       expect(email.searchParams.get("subject")).toBe(`${service.inquiryName} Inquiry — EVCodelabs`);
       expect(email.searchParams.get("body")).toContain(service.inquiryName);
       const whatsapp = serviceWhatsappHref(service);
-      if (whatsapp) expect(new URL(whatsapp).searchParams.get("text")).toContain(service.inquiryName);
+      if (whatsapp)
+        expect(new URL(whatsapp).searchParams.get("text")).toContain(service.inquiryName);
     }
     expect(getService("not-a-service")).toBeUndefined();
   });
