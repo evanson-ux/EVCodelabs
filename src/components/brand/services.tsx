@@ -99,7 +99,7 @@ export function ServicesOverview({
         <div className="content-width">
           <p className="eyebrow mb-4 text-primary">Our Services</p>
           <h1 id="services-title" className="reading-width">
-            Explore Practical Digital Solutions That Move Your Busines.
+            Explore Practical Digital Solutions That Move Your Business Forward.
           </h1>
           <p className="reading-width mt-6 text-muted-foreground">
             EVCodelabs offers practical digital services to help businesses establish their online
@@ -153,20 +153,36 @@ export function Breadcrumbs({ service }: { service: Service }) {
     <nav aria-label="Breadcrumb" className="caption text-muted-foreground">
       <ol className="breadcrumb">
         <li>
-          <Link to="/" className="nav-link">Home</Link>
+          <Link to="/" className="nav-link">
+            Home
+          </Link>
         </li>
-        <li aria-hidden="true"><ChevronRight size={14} /></li>
+        <li aria-hidden="true">
+          <ChevronRight size={14} />
+        </li>
         <li>
-          <Link to="/services" className="nav-link">Services</Link>
+          <Link to="/services" className="nav-link">
+            Services
+          </Link>
         </li>
-        <li aria-hidden="true"><ChevronRight size={14} /></li>
-        <li aria-current="page" className="font-semibold text-foreground">{service.name}</li>
+        <li aria-hidden="true">
+          <ChevronRight size={14} />
+        </li>
+        <li aria-current="page" className="font-semibold text-foreground">
+          {service.name}
+        </li>
       </ol>
     </nav>
   );
 }
 
-export function ServiceInquiryActions({ service, inverse }: { service: Service; inverse?: boolean }) {
+export function ServiceInquiryActions({
+  service,
+  inverse,
+}: {
+  service: Service;
+  inverse?: boolean;
+}) {
   const params = { service_slug: service.slug, service_pillar: service.pillar };
   const whatsapp = serviceWhatsappHref(service);
   return (
@@ -195,7 +211,8 @@ export function ServiceInquiryActions({ service, inverse }: { service: Service; 
             }}
           >
             <MessageCircle aria-hidden="true" />
-            WhatsApp us<span className="sr-only"> about {service.inquiryName} (opens in a new tab)</span>
+            WhatsApp us
+            <span className="sr-only"> about {service.inquiryName} (opens in a new tab)</span>
           </a>
         </Button>
       )}
@@ -205,7 +222,11 @@ export function ServiceInquiryActions({ service, inverse }: { service: Service; 
 
 export function ServiceDetail({ service }: { service: Service }) {
   useEffect(
-    () => trackEvent("service_page_view", { service_slug: service.slug, service_pillar: service.pillar }),
+    () =>
+      trackEvent("service_page_view", {
+        service_slug: service.slug,
+        service_pillar: service.pillar,
+      }),
     [service.slug, service.pillar],
   );
   const related = service.related.map(getService).filter((s): s is Service => Boolean(s));
@@ -216,8 +237,12 @@ export function ServiceDetail({ service }: { service: Service }) {
       <section className="section-space border-b border-border" aria-labelledby="service-title">
         <div className="content-width">
           <Breadcrumbs service={service} />
-          <p className="eyebrow mt-8 text-primary">{pillar.label} · {service.name}</p>
-          <h1 id="service-title" className="reading-width mt-3">{service.heroTitle}</h1>
+          <p className="eyebrow mt-8 text-primary">
+            {pillar.label} · {service.name}
+          </p>
+          <h1 id="service-title" className="reading-width mt-3">
+            {service.heroTitle}
+          </h1>
           <p className="reading-width mt-6">{service.intro}</p>
           <p className="reading-width mt-4 text-muted-foreground">{service.audience}</p>
           <div className="mt-8 flex flex-wrap items-center gap-4">
@@ -237,27 +262,38 @@ export function ServiceDetail({ service }: { service: Service }) {
           <SectionHeading eyebrow="Challenges" title="Problems this service can help with" />
           <div>
             <ul className="service-list detail-list">
-              {service.challenges.map((item) => <li key={item}>{item}</li>)}
+              {service.challenges.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
             </ul>
           </div>
         </div>
       </section>
 
-      <section className="section-space border-y border-border bg-card" aria-labelledby="included-title">
+      <section
+        className="section-space border-y border-border bg-card"
+        aria-labelledby="included-title"
+      >
         <div className="content-width">
           <h2 id="included-title">What's included</h2>
           <div className="detail-columns mt-10">
             <div>
               <h3>Core work</h3>
               <ul className="service-list detail-list mt-5">
-                {service.included.map((item) => <li key={item}>{item}</li>)}
+                {service.included.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
               </ul>
             </div>
             <div>
               <h3>Depends on your project</h3>
-              <p className="mt-3 text-muted-foreground">Scoped and agreed separately where needed.</p>
+              <p className="mt-3 text-muted-foreground">
+                Scoped and agreed separately where needed.
+              </p>
               <ul className="service-list detail-list mt-5 text-muted-foreground">
-                {service.dependsOnProject.map((item) => <li key={item}>{item}</li>)}
+                {service.dependsOnProject.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
               </ul>
             </div>
           </div>
@@ -267,11 +303,15 @@ export function ServiceDetail({ service }: { service: Service }) {
       <section className="section-space inverse-band" aria-labelledby="process-title">
         <div className="content-width">
           <p className="eyebrow">How it works</p>
-          <h2 id="process-title" className="mt-3 reading-width">How we approach {service.name}</h2>
+          <h2 id="process-title" className="mt-3 reading-width">
+            How we approach {service.name}
+          </h2>
           <ol className="approach-steps detail-steps mt-12">
             {service.process.map((step, index) => (
               <li key={step.title}>
-                <span className="step-number" aria-hidden="true">0{index + 1}</span>
+                <span className="step-number" aria-hidden="true">
+                  0{index + 1}
+                </span>
                 <h3>{step.title}</h3>
                 <p className="mt-3">{step.description}</p>
               </li>

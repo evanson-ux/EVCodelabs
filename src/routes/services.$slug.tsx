@@ -11,7 +11,24 @@ export const Route = createFileRoute("/services/$slug")({
   },
   head: ({ params, loaderData }) => {
     const service = loaderData ? getService(loaderData.slug) : undefined;
-    if (!service) return { meta: [{ title: "Service not found | EVCodelabs" }, { name: "robots", content: "noindex" }] };
+    if (!service)
+      return {
+        meta: [
+          { title: "Service unavailable | EVCodelabs" },
+          {
+            name: "description",
+            content: "Explore EVCodelabs digital services to find a solution for your business.",
+          },
+          { property: "og:title", content: "Service unavailable | EVCodelabs" },
+          {
+            property: "og:description",
+            content: "Explore EVCodelabs digital services to find a solution for your business.",
+          },
+          { property: "og:type", content: "website" },
+          { name: "twitter:card", content: "summary" },
+          { name: "robots", content: "noindex" },
+        ],
+      };
     const url = siteContent.siteUrl ? `${siteContent.siteUrl}/services/${params.slug}` : undefined;
     return {
       meta: [
@@ -36,7 +53,11 @@ export const Route = createFileRoute("/services/$slug")({
                 serviceType: service.name,
                 category: pillars[service.pillar].label,
                 description: service.seoDescription,
-                provider: { "@type": "Organization", name: siteContent.name, ...(siteContent.siteUrl ? { url: siteContent.siteUrl } : {}) },
+                provider: {
+                  "@type": "Organization",
+                  name: siteContent.name,
+                  ...(siteContent.siteUrl ? { url: siteContent.siteUrl } : {}),
+                },
                 ...(url ? { url } : {}),
               },
               ...(siteContent.siteUrl
@@ -44,8 +65,18 @@ export const Route = createFileRoute("/services/$slug")({
                     {
                       "@type": "BreadcrumbList",
                       itemListElement: [
-                        { "@type": "ListItem", position: 1, name: "Home", item: `${siteContent.siteUrl}/` },
-                        { "@type": "ListItem", position: 2, name: "Services", item: `${siteContent.siteUrl}/services` },
+                        {
+                          "@type": "ListItem",
+                          position: 1,
+                          name: "Home",
+                          item: `${siteContent.siteUrl}/`,
+                        },
+                        {
+                          "@type": "ListItem",
+                          position: 2,
+                          name: "Services",
+                          item: `${siteContent.siteUrl}/services`,
+                        },
                         { "@type": "ListItem", position: 3, name: service.name, item: url },
                       ],
                     },

@@ -18,3 +18,4 @@
 - Supply contact destinations to presentation controls explicitly; missing destinations render inactive controls rather than fabricated actions.
 
 - Production origin and WhatsApp number are configured only in `src/lib/site-content.ts` (`siteUrl`, `whatsapp`); canonical, og:url, and WhatsApp links derive from them so nothing is published before it is verified.
+- Keep the service catalogue in `src/lib/services-catalogue.ts` and render it through shared service components and a slug route; this keeps service copy, related links, and inquiry messages consistent across all service pages.
