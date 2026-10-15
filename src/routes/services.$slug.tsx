@@ -11,7 +11,15 @@ export const Route = createFileRoute("/services/$slug")({
   },
   head: ({ params, loaderData }) => {
     const service = loaderData ? getService(loaderData.slug) : undefined;
-    if (!service) return { meta: [{ title: "Service not found | EVCodelabs" }, { name: "robots", content: "noindex" }] };
+    if (!service) return { meta: [
+      { title: "Service unavailable | EVCodelabs" },
+      { name: "description", content: "Explore EVCodelabs digital services to find a solution for your business." },
+      { property: "og:title", content: "Service unavailable | EVCodelabs" },
+      { property: "og:description", content: "Explore EVCodelabs digital services to find a solution for your business." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary" },
+      { name: "robots", content: "noindex" },
+    ] };
     const url = siteContent.siteUrl ? `${siteContent.siteUrl}/services/${params.slug}` : undefined;
     return {
       meta: [
