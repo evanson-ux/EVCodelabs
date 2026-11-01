@@ -19,3 +19,4 @@
 
 - Production origin and WhatsApp number are configured only in `src/lib/site-content.ts` (`siteUrl`, `whatsapp`); canonical, og:url, and WhatsApp links derive from them so nothing is published before it is verified.
 - Keep the service catalogue in `src/lib/services-catalogue.ts` and render it through shared service components and a slug route; this keeps service copy, related links, and inquiry messages consistent across all service pages.
+- Keep service concept imagery mapped by slug in `src/lib/service-images.ts` and scope service-page visual roles under `.services-experience` in the global stylesheet; this preserves the homepage design while consistently refining all service pages.

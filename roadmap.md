@@ -11,6 +11,8 @@
 - [ ] Final-domain canonical (set `siteUrl`), sitemap and Search Console setup — blocked until production domain and verification access are available.
 
 ## Service-page completion
+- [ ] Finish the approved visual refinement: softer surfaces, filters, cards, imagery, challenges and motion.
+- [ ] Verify the visual refinement on desktop/mobile, inquiries, filters, FAQs and existing checks.
 - [x] Finish the existing service overview and thirteen detail pages without changing the design.
 - [x] Verify filters, related links, service-specific inquiries, FAQs, metadata, and desktop/mobile layouts.
 - [x] Run service tests and inspect the automatic build result; report unrelated pre-existing test failures.
