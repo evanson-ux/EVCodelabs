@@ -1,6 +1,17 @@
 import { useEffect } from "react";
 import { Link } from "@tanstack/react-router";
-import { ArrowLeft, ArrowUpRight, Check, ChevronRight, Mail, MessageCircle, Layers, TrendingUp, Workflow, ChartNoAxesCombined } from "lucide-react";
+import {
+  ArrowLeft,
+  ArrowUpRight,
+  Check,
+  ChevronRight,
+  Mail,
+  MessageCircle,
+  Layers,
+  TrendingUp,
+  Workflow,
+  ChartNoAxesCombined,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { FaqList, SectionHeading } from "@/components/brand/content-components";
 import {
@@ -17,7 +28,12 @@ import { trackEvent } from "@/lib/analytics";
 import { cn } from "@/lib/utils";
 import { serviceImages } from "@/lib/service-images";
 
-const pillarIcons = { build: Layers, grow: TrendingUp, automate: Workflow, scale: ChartNoAxesCombined };
+const pillarIcons = {
+  build: Layers,
+  grow: TrendingUp,
+  automate: Workflow,
+  scale: ChartNoAxesCombined,
+};
 
 export function ServiceSummaryCard({ service }: { service: Service }) {
   const Icon = pillarIcons[service.pillar];
@@ -25,7 +41,9 @@ export function ServiceSummaryCard({ service }: { service: Service }) {
     <article className="service-card service-summary">
       <div className="flex items-center justify-between gap-4">
         <p className="eyebrow text-primary">{pillars[service.pillar].label}</p>
-        <span className="service-icon"><Icon size={22} aria-hidden="true" /></span>
+        <span className="service-icon">
+          <Icon size={22} aria-hidden="true" />
+        </span>
       </div>
       <h3 className="mt-3">{service.name}</h3>
       <p className="mt-3 text-muted-foreground">{service.summary}</p>
@@ -102,7 +120,10 @@ export function ServicesOverview({
 
   return (
     <div className="services-experience service-page-enter">
-      <section className="section-space services-overview-hero border-b border-border" aria-labelledby="services-title">
+      <section
+        className="section-space services-overview-hero border-b border-border"
+        aria-labelledby="services-title"
+      >
         <div className="content-width">
           <p className="eyebrow mb-4 text-primary">Our Services</p>
           <h1 id="services-title" className="services-overview-title">
@@ -114,7 +135,9 @@ export function ServicesOverview({
             below by pillar, or tell us about your goals and we will help you decide where to start.
           </p>
           <div className="service-filter-panel mt-8">
-            <p className="caption mb-3 font-semibold" id="category-label">Explore by category</p>
+            <p className="caption mb-3 font-semibold" id="category-label">
+              Explore by category
+            </p>
             <PillarFilter
               value={filter}
               onChange={(value) => {
@@ -126,7 +149,11 @@ export function ServicesOverview({
         </div>
       </section>
       <div className="section-space">
-        <div key={filter} className="content-width pillar-stack service-filter-enter" aria-live="polite">
+        <div
+          key={filter}
+          className="content-width pillar-stack service-filter-enter"
+          aria-live="polite"
+        >
           {visible.map((pillar) => (
             <PillarGroup key={pillar} pillar={pillar} />
           ))}
@@ -243,30 +270,43 @@ export function ServiceDetail({ service }: { service: Service }) {
 
   return (
     <div key={service.slug} className="services-experience service-page-enter">
-      <section className="section-space service-detail-hero border-b border-border" aria-labelledby="service-title">
+      <section
+        className="section-space service-detail-hero border-b border-border"
+        aria-labelledby="service-title"
+      >
         <div className="content-width">
           <Breadcrumbs service={service} />
           <div className="service-hero-layout mt-8">
-          <div className="service-hero-copy">
-          <p className="eyebrow text-primary">
-            {pillar.label} · {service.name}
-          </p>
-          <h1 id="service-title" className="reading-width mt-3">
-            {service.heroTitle}
-          </h1>
-          <p className="reading-width mt-6">{service.intro}</p>
-          <p className="reading-width mt-4 text-muted-foreground">{service.audience}</p>
-          <div className="mt-8 flex flex-wrap items-center gap-4">
-            <ServiceInquiryActions service={service} />
-            <Button asChild variant="link">
-              <Link to="/services" search={{ pillar: service.pillar }}>
-                <ArrowLeft aria-hidden="true" />
-                All {pillar.label} services
-              </Link>
-            </Button>
-          </div>
-          </div>
-          {image && <img className="service-hero-image" src={image.src} alt={image.alt} width={1200} height={900} decoding="async" fetchPriority="high" />}
+            <div className="service-hero-copy">
+              <p className="eyebrow text-primary">
+                {pillar.label} · {service.name}
+              </p>
+              <h1 id="service-title" className="reading-width mt-3">
+                {service.heroTitle}
+              </h1>
+              <p className="reading-width mt-6">{service.intro}</p>
+              <p className="reading-width mt-4 text-muted-foreground">{service.audience}</p>
+              <div className="mt-8 flex flex-wrap items-center gap-4">
+                <ServiceInquiryActions service={service} />
+                <Button asChild variant="link">
+                  <Link to="/services" search={{ pillar: service.pillar }}>
+                    <ArrowLeft aria-hidden="true" />
+                    All {pillar.label} services
+                  </Link>
+                </Button>
+              </div>
+            </div>
+            {image && (
+              <img
+                className="service-hero-image"
+                src={image.src}
+                alt={image.alt}
+                width={1200}
+                height={900}
+                decoding="async"
+                fetchPriority="high"
+              />
+            )}
           </div>
         </div>
       </section>
@@ -277,7 +317,10 @@ export function ServiceDetail({ service }: { service: Service }) {
           <div>
             <ul className="challenge-list">
               {service.challenges.map((item) => (
-                <li key={item}><Check size={18} aria-hidden="true" /><span>{item}</span></li>
+                <li key={item}>
+                  <Check size={18} aria-hidden="true" />
+                  <span>{item}</span>
+                </li>
               ))}
             </ul>
           </div>
