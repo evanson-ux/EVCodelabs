@@ -37,8 +37,20 @@ const pillarIcons = {
 
 export function ServiceSummaryCard({ service }: { service: Service }) {
   const Icon = pillarIcons[service.pillar];
+  const image = serviceImages[service.slug];
   return (
     <article className="service-card service-summary">
+      {image && (
+        <img
+          className="service-card-image"
+          src={image.src}
+          alt={image.alt}
+          width={1200}
+          height={900}
+          loading="lazy"
+          decoding="async"
+        />
+      )}
       <div className="flex items-center justify-between gap-4">
         <p className="eyebrow text-primary">{pillars[service.pillar].label}</p>
         <span className="service-icon">

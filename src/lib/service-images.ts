@@ -35,7 +35,7 @@ export const serviceImages: Record<string, ServiceImage> = {
   },
   seo: {
     src: seo,
-    alt: "Laptop showing a search results layout next to a website checklist and sketched site structure",
+    alt: "Laptop showing an SEO report with search performance, keyword rankings and traffic sources",
   },
   "social-media-management": {
     src: social,
@@ -47,7 +47,7 @@ export const serviceImages: Record<string, ServiceImage> = {
   },
   "whatsapp-email-automation": {
     src: messaging,
-    alt: "Illustration of chat and email messages flowing through connected automated steps",
+    alt: "Phone showing a customer chat conversation beside a laptop with an automated email sequence",
   },
   "business-automation": {
     src: automation,
@@ -67,6 +67,6 @@ export const serviceImages: Record<string, ServiceImage> = {
   },
   "technical-support": {
     src: support,
-    alt: "Laptop showing a system checklist with ticks beside a small toolkit and cable organiser",
+    alt: "Technician monitoring system status and server health dashboards on two screens",
   },
 };
