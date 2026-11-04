@@ -991,3 +991,7 @@
 @media (prefers-reduced-motion: reduce) {
   .services-experience .service-summary:hover { transform: none; }
 }
+@media (max-width: 767px) {
+  .services-experience .pillar-filter { display: flex; flex-wrap: wrap; justify-content: center; }
+  .services-experience .pillar-filter button { flex: 0 1 calc(33.333% - 0.5rem); }
+}
