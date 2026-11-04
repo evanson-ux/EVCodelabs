@@ -6,7 +6,8 @@ export const siteContent = {
   /** Confirmed production origin. null = no canonical/sitemap URLs. */
   siteUrl: "https://www.evcodelabs.co.ke",
   navigation: [
-    { label: "Services", href: "/#services" },
+    { label: "Home", href: "/" },
+    { label: "Services", href: "/services" },
     { label: "Our Approach", href: "/#approach" },
     { label: "Case Studies", href: "/#case-studies" },
     { label: "Contact", href: "/#contact" },
