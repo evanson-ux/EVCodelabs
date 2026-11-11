@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { ArrowUpRight, FolderOpen } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
 import {
   Accordion,
@@ -35,11 +36,13 @@ export function ServiceCard({
   description,
   services,
   icon,
+  serviceSlugs,
 }: {
   name: string;
   description: string;
   services: string | readonly string[];
   icon?: ReactNode;
+  serviceSlugs?: Readonly<Record<string, string>>;
 }) {
   return (
     <article className="service-card">
@@ -55,7 +58,19 @@ export function ServiceCard({
       ) : (
         <ul className="service-list mt-5 border-t border-border pt-5 text-muted-foreground">
           {services.map((service) => (
-            <li key={service}>{service}</li>
+            <li key={service}>
+              {serviceSlugs?.[service] ? (
+                <Link
+                  className="underline decoration-current underline-offset-4 hover:text-primary"
+                  to="/services/$slug"
+                  params={{ slug: serviceSlugs[service] }}
+                >
+                  {service}
+                </Link>
+              ) : (
+                service
+              )}
+            </li>
           ))}
         </ul>
       )}
