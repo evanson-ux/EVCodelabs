@@ -14,6 +14,7 @@ vi.mock("@tanstack/react-router", () => ({
 import { Homepage } from "@/components/brand/homepage";
 import { SiteFooter, SiteHeader } from "@/components/brand/site-chrome";
 import { emailInquiryHref, siteContent } from "@/lib/site-content";
+import { services } from "@/lib/services-catalogue";
 import { ContactModalProvider } from "@/components/brand/contact-modal-context";
 import { ContactModal } from "@/components/brand/contact-modal";
 
@@ -78,21 +79,7 @@ describe("EVCodelabs homepage", () => {
 
   it("links every homepage service to an existing service detail page", () => {
     const { container } = renderHomepage();
-    const detailSlugs = new Set([
-      "website-development",
-      "branding",
-      "ecommerce-development",
-      "custom-software-development",
-      "seo",
-      "social-media-management",
-      "local-seo",
-      "whatsapp-email-automation",
-      "business-automation",
-      "booking-automation",
-      "ai-solutions",
-      "business-analytics",
-      "technical-support",
-    ]);
+    const detailSlugs = new Set(services.map((service) => service.slug));
     const serviceCount = siteContent.services.items.reduce(
       (total, group) => total + group.services.length,
       0,
