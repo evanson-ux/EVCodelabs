@@ -2,13 +2,19 @@ import { cleanup, fireEvent, render, screen, within } from "@testing-library/rea
 import { afterEach, describe, expect, it, vi } from "vitest";
 
 vi.mock("@tanstack/react-router", () => ({
-  Link: ({ to, children, ...rest }: { to: string; children: React.ReactNode }) => (
-    <a href={to} {...rest}>{children}</a>
-  ),
+  Link: ({ to, params, children, ...rest }: {
+    to: string;
+    params?: { slug?: string };
+    children: React.ReactNode;
+  }) => {
+    const href = to === "/services/$slug" && params?.slug ? `/services/${params.slug}` : to;
+    return <a href={href} {...rest}>{children}</a>;
+  },
 }));
 import { Homepage } from "@/components/brand/homepage";
 import { SiteFooter, SiteHeader } from "@/components/brand/site-chrome";
 import { emailInquiryHref, siteContent } from "@/lib/site-content";
+import { services } from "@/lib/services-catalogue";
 import { ContactModalProvider } from "@/components/brand/contact-modal-context";
 import { ContactModal } from "@/components/brand/contact-modal";
 
@@ -68,6 +74,22 @@ describe("EVCodelabs homepage", () => {
 
     for (const stage of siteContent.process.steps) {
       expect(screen.getByText(stage.description)).toBeVisible();
+    }
+  });
+
+  it("links every homepage service to an existing service detail page", () => {
+    const { container } = renderHomepage();
+    const detailSlugs = new Set(services.map((service) => service.slug));
+    const serviceCount = siteContent.services.items.reduce(
+      (total, group) => total + group.services.length,
+      0,
+    );
+    const links = container.querySelectorAll("#services .service-list a");
+
+    expect(links).toHaveLength(serviceCount);
+    for (const link of links) {
+      const slug = link.getAttribute("href")?.split("/").at(-1);
+      expect(slug && detailSlugs.has(slug)).toBe(true);
     }
   });
 

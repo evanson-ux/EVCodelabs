@@ -25,6 +25,34 @@ import workspaceImage1600 from "@/assets/homepage-workspace-1600.jpg";
 
 const serviceIcons = [Code2, ChartNoAxesCombined, Workflow, Blocks];
 
+const serviceDetailSlugs: Readonly<Record<string, string>> = {
+  Branding: "branding",
+  "Website design and development": "website-development",
+  "E-commerce": "ecommerce-development",
+  "Web and mobile apps": "custom-software-development",
+  "Custom software": "custom-software-development",
+  "UI/UX design": "website-development",
+  SEO: "seo",
+  "Local SEO": "local-seo",
+  "Google Business Profile": "local-seo",
+  "Social media management": "social-media-management",
+  "Content creation": "social-media-management",
+  "Paid advertising": "social-media-management",
+  "Lead generation": "seo",
+  "Workflow automation": "business-automation",
+  "CRM systems": "business-automation",
+  "WhatsApp and email automation": "whatsapp-email-automation",
+  "Booking systems": "booking-automation",
+  Notifications: "whatsapp-email-automation",
+  Reporting: "business-analytics",
+  "AI integrations": "ai-solutions",
+  "Business analytics": "business-analytics",
+  "System integrations": "business-automation",
+  "Performance optimization": "website-development",
+  "Advanced software": "custom-software-development",
+  "Ongoing technical support": "technical-support",
+};
+
 export function Homepage() {
   const { open } = useContactModal();
   return (
@@ -78,6 +106,7 @@ export function Homepage() {
                 <ServiceCard
                   key={service.name}
                   {...service}
+                  serviceSlugs={serviceDetailSlugs}
                   icon={Icon ? <Icon size={25} strokeWidth={1.5} /> : undefined}
                 />
               );
