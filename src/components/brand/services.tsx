@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { Link } from "@tanstack/react-router";
 import {
   ArrowLeft,
@@ -103,7 +103,11 @@ export function PillarFilter({
 function PillarGroup({ pillar }: { pillar: PillarId }) {
   const info = pillars[pillar];
   return (
-    <section aria-labelledby={`pillar-${pillar}`} className="pillar-group">
+    <section
+      id={`pillar-group-${pillar}`}
+      aria-labelledby={`pillar-${pillar}`}
+      className="pillar-group"
+    >
       <div className="reading-width">
         <p className="eyebrow text-primary">{info.label}</p>
         <h2 id={`pillar-${pillar}`} className="pillar-title mt-2">
@@ -128,6 +132,21 @@ export function ServicesOverview({
   onFilterChange: (value: FilterValue) => void;
 }) {
   useEffect(() => trackEvent("services_overview_view"), []);
+  const previousFilter = useRef<FilterValue>("all");
+  useEffect(() => {
+    if (previousFilter.current === filter) return;
+    previousFilter.current = filter;
+
+    const target = document.getElementById(
+      filter === "all" ? "service-groups" : `pillar-group-${filter}`,
+    );
+    if (!target) return;
+
+    target.scrollIntoView({
+      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
+      block: "start",
+    });
+  }, [filter]);
   const visible = filter === "all" ? pillarIds : [filter];
 
   return (
@@ -162,6 +181,7 @@ export function ServicesOverview({
       </section>
       <div className="section-space">
         <div
+          id="service-groups"
           key={filter}
           className="content-width pillar-stack service-filter-enter"
           aria-live="polite"
