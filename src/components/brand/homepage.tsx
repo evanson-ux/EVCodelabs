@@ -5,6 +5,9 @@ import {
   Code2,
   Mail,
   MessageCircle,
+  Search,
+  MessageSquareText,
+  ShieldCheck,
   Workflow,
 } from "lucide-react";
 import { Link } from "@tanstack/react-router";
@@ -17,11 +20,6 @@ import {
 } from "@/components/brand/content-components";
 import { useContactModal } from "@/components/brand/contact-modal-context";
 import { emailInquiryHref, siteContent, whatsappInquiryHref } from "@/lib/site-content";
-import workspaceImage from "@/assets/homepage-workspace.jpg";
-import workspaceImage480 from "@/assets/homepage-workspace-480.jpg";
-import workspaceImage768 from "@/assets/homepage-workspace-768.jpg";
-import workspaceImage1200 from "@/assets/homepage-workspace-1200.jpg";
-import workspaceImage1600 from "@/assets/homepage-workspace-1600.jpg";
 
 const serviceIcons = [Code2, ChartNoAxesCombined, Workflow, Blocks];
 
@@ -55,33 +53,43 @@ const serviceDetailSlugs: Readonly<Record<string, string>> = {
 
 export function Homepage() {
   const { open } = useContactModal();
+  const objectiveIcons = [Search, MessageSquareText, ShieldCheck];
   return (
     <>
       <section className="homepage-hero" aria-labelledby="hero-title">
-        <img
-          src={workspaceImage}
-          srcSet={`${workspaceImage480} 480w, ${workspaceImage768} 768w, ${workspaceImage1200} 1200w, ${workspaceImage1600} 1600w, ${workspaceImage} 1920w`}
-          sizes="100vw"
-          alt=""
-          className="hero-image"
-          width={1920}
-          height={1024}
-          fetchPriority="high"
-        />
         <div className="content-width hero-inner">
           <div className="hero-copy">
-            <p className="eyebrow mb-6 flex items-center gap-3 text-primary">
+            <p className="eyebrow mb-6 flex items-center gap-3 text-brand-sage">
               <span className="eyebrow-rule" aria-hidden="true" />
               {siteContent.hero.eyebrow}
             </p>
-            <h1 id="hero-title">{siteContent.hero.title}</h1>
-            <p className="mt-6 text-muted-foreground">{siteContent.hero.description}</p>
+            <h1 id="hero-title" className="hero-title">
+              <span>Be <span className="text-brand-sage">Visible.</span>{" "}</span>
+              <span>Be <span className="text-brand-sage">Understood.</span>{" "}</span>
+              <span>Be <span className="text-brand-sage">Trusted.</span></span>
+            </h1>
+            <p className="hero-description mt-6">{siteContent.hero.description}</p>
+            <ul className="hero-objectives mt-8" aria-label="Our core objectives">
+              {siteContent.hero.objectives.map((objective, index) => {
+                const Icon = objectiveIcons[index];
+                return (
+                  <li key={objective.title}>
+                    {Icon ? <Icon className="hero-objective-icon" aria-hidden="true" /> : null}
+                    <div>
+                      <h2>{objective.title}</h2>
+                      <p>{objective.description}</p>
+                    </div>
+                  </li>
+                );
+              })}
+            </ul>
+            <p className="hero-statement mt-7">{siteContent.hero.statement}</p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <Button size="lg" onClick={open}>
+              <Button size="lg" className="hero-primary-action" onClick={open}>
                 {siteContent.hero.primaryAction}
                 <ArrowUpRight aria-hidden="true" />
               </Button>
-              <Button asChild size="lg" variant="outline">
+              <Button asChild size="lg" variant="outline" className="hero-secondary-action">
                 <Link to="/services">
                   {siteContent.hero.secondaryAction}
                   <ArrowUpRight aria-hidden="true" />

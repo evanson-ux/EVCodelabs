@@ -61,6 +61,25 @@ describe("EVCodelabs homepage", () => {
     expect(container.lastElementChild?.tagName).toBe("FOOTER");
   });
 
+  it("shows the approved hero positioning, objectives, statement, and actions", () => {
+    renderHomepage();
+
+    expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent(
+      "Be Visible. Be Understood. Be Trusted.",
+    );
+    expect(screen.getByText(siteContent.hero.description)).toBeVisible();
+    for (const objective of siteContent.hero.objectives) {
+      expect(screen.getByRole("heading", { name: objective.title })).toBeVisible();
+      expect(screen.getByText(objective.description)).toBeVisible();
+    }
+    expect(screen.getByText(siteContent.hero.statement)).toBeVisible();
+    expect(screen.getByRole("button", { name: "Let's Grow Your Business" })).toBeVisible();
+    expect(screen.getByRole("link", { name: "Explore Our Services" })).toHaveAttribute(
+      "href",
+      "/services",
+    );
+  });
+
   it("publishes every approved service and process description", () => {
     renderHomepage();
 
@@ -100,7 +119,8 @@ describe("EVCodelabs homepage", () => {
       name: "Discuss a Project",
     });
 
-    expect(discussButtons.length).toBeGreaterThanOrEqual(2);
+    expect(discussButtons.length).toBeGreaterThanOrEqual(1);
+    expect(screen.getByRole("button", { name: "Let's Grow Your Business" })).toBeInTheDocument();
 
     const emailLink = screen.getByRole("link", {
       name: siteContent.email,
