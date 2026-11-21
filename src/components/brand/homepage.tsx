@@ -1,3 +1,4 @@
+import growthImage from "@/assets/growth.png";
 import {
   ArrowUpRight,
   Blocks,
@@ -5,9 +6,6 @@ import {
   Code2,
   Mail,
   MessageCircle,
-  Search,
-  MessageSquareText,
-  ShieldCheck,
   Workflow,
 } from "lucide-react";
 import { Link } from "@tanstack/react-router";
@@ -53,43 +51,46 @@ const serviceDetailSlugs: Readonly<Record<string, string>> = {
 
 export function Homepage() {
   const { open } = useContactModal();
-  const objectiveIcons = [Search, MessageSquareText, ShieldCheck];
+
   return (
     <>
       <section className="homepage-hero" aria-labelledby="hero-title">
+        <div className="hero-image" aria-hidden="true" style={{ "--growth": `url(${growthImage})` } as React.CSSProperties} />
         <div className="content-width hero-inner">
           <div className="hero-copy">
             <p className="eyebrow mb-6 flex items-center gap-3 text-brand-sage">
               <span className="eyebrow-rule" aria-hidden="true" />
               {siteContent.hero.eyebrow}
             </p>
+
             <h1 id="hero-title" className="hero-title">
-              <span>Be <span className="text-brand-sage">Visible.</span>{" "}</span>
-              <span>Be <span className="text-brand-sage">Understood.</span>{" "}</span>
-              <span>Be <span className="text-brand-sage">Trusted.</span></span>
+              {siteContent.hero.title}
             </h1>
-            <p className="hero-description mt-6">{siteContent.hero.description}</p>
-            <ul className="hero-objectives mt-8" aria-label="Our core objectives">
-              {siteContent.hero.objectives.map((objective, index) => {
-                const Icon = objectiveIcons[index];
-                return (
-                  <li key={objective.title}>
-                    {Icon ? <Icon className="hero-objective-icon" aria-hidden="true" /> : null}
-                    <div>
-                      <h2>{objective.title}</h2>
-                      <p>{objective.description}</p>
-                    </div>
-                  </li>
-                );
-              })}
-            </ul>
-            <p className="hero-statement mt-7">{siteContent.hero.statement}</p>
+
+            <p className="mt-4 text-3xl font-semibold leading-tight tracking-tight text-[#9DC183] sm:text-4xl lg:text-5xl">
+              {siteContent.hero.outcomes.join(" ")}
+            </p>
+
+            <p className="hero-description mt-6">
+              {siteContent.hero.description}
+            </p>
+
+            <p className="hero-statement mt-7">
+              {siteContent.hero.statement}
+            </p>
+
             <div className="mt-8 flex flex-wrap gap-3">
               <Button size="lg" className="hero-primary-action" onClick={open}>
                 {siteContent.hero.primaryAction}
                 <ArrowUpRight aria-hidden="true" />
               </Button>
-              <Button asChild size="lg" variant="outline" className="hero-secondary-action">
+
+              <Button
+                asChild
+                size="lg"
+                variant="outline"
+                className="hero-secondary-action"
+              >
                 <Link to="/services">
                   {siteContent.hero.secondaryAction}
                   <ArrowUpRight aria-hidden="true" />

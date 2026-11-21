@@ -376,14 +376,19 @@
 .homepage-hero {
   position: relative;
   isolation: isolate;
+  overflow: hidden;
   background: var(--brand-charcoal);
   color: var(--brand-alabaster);
 }
 .hero-inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 28rem;
   padding-block: 5.5rem;
 }
 .hero-copy {
-  max-width: 64rem;
+  max-width: 40rem;
 }
 .hero-copy .eyebrow-rule {
   background: var(--brand-sage);
@@ -393,45 +398,47 @@
   gap: 0.05em;
   color: var(--brand-alabaster);
 }
-.hero-description {
-  max-width: 54rem;
-  color: var(--brand-alabaster);
-}
-.hero-objectives {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1.5rem;
-  max-width: 56rem;
-}
-.hero-objectives li {
+.hero-outcomes {
   display: flex;
-  align-items: flex-start;
-  gap: 0.875rem;
-  border-top: 1px solid color-mix(in oklab, var(--brand-sage) 45%, transparent);
-  padding-top: 1rem;
+  flex-wrap: wrap;
+  gap: 0.75rem;
 }
-.hero-objective-icon {
-  width: 1.5rem;
-  height: 1.5rem;
-  flex: 0 0 auto;
-  color: var(--brand-sage);
-  margin-top: 0.15rem;
-}
-.hero-objectives h2 {
-  color: var(--brand-sage);
+.hero-outcome-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.4rem 1rem;
+  border: 1px solid #9dc183;
+  border-radius: 0.5rem;
+  background: transparent;
+  color: #9dc183;
   font-size: var(--text-control);
-  font-weight: 700;
+  font-weight: 500;
   line-height: 1.4;
+  white-space: nowrap;
 }
-.hero-objectives p {
-  margin-top: 0.25rem;
+.hero-description {
+  max-width: 36rem;
   color: var(--brand-alabaster);
-  font-size: var(--text-control);
 }
 .hero-statement {
-  max-width: 54rem;
+  max-width: 36rem;
   color: var(--brand-sage);
   font-weight: 600;
+}
+.hero-image {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 45%;
+  max-width: 700px;
+  min-width: 350px;
+
+  background-color: transparent;
+  background-image: var(--growth, none);
+  background-size: contain;
+  background-position: center right;
+  background-repeat: no-repeat;
 }
 .hero-primary-action {
   background: var(--brand-sage);
@@ -568,8 +575,20 @@
   .process-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+  .hero-inner {
+    padding-block: 4.5rem;
+    min-height: 24rem;
+  }
   .hero-copy {
     max-width: 100%;
+  }
+  .hero-image {
+    width: 50%;
+    max-width: 600px;
+    min-width: 300px;
+    min-height: 24rem;
+    background-size: contain;
+    background-position: center right;
   }
   .faq-layout,
   .contact-layout {
@@ -603,17 +622,18 @@
     min-height: 4.5rem;
   }
   .hero-inner {
-    padding-block: 3rem 3.5rem;
+    padding-block: 3rem 0;
+    min-height: auto;
   }
   .hero-copy {
     max-width: 100%;
   }
-  .hero-objectives {
-    grid-template-columns: 1fr;
-    gap: 0.9rem;
-  }
-  .hero-objectives li {
-    padding-top: 0.85rem;
+  .hero-image {
+    position: static;
+    width: 100%;
+    min-height: 20rem;
+    background-size: contain;
+    background-position: center;
   }
   .services-grid,
   .process-grid,

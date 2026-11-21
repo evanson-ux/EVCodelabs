@@ -1,3 +1,4 @@
+
 export const siteContent = {
   name: "EVCodelabs",
   email: "evcodelabs01@gmail.com",
@@ -14,15 +15,11 @@ export const siteContent = {
   ],
   hero: {
     eyebrow: "YOUR DIGITAL GROWTH PARTNER",
-    title: "Be Visible. Be Understood. Be Trusted.",
+    title: "We help your business become",
     description:
       "EVCodelabs helps businesses grow in the digital world by building and improving their online visibility, making their products and services easier to understand, and strengthening the trust customers have in their brand.",
-    objectives: [
-      { title: "VISIBLE", description: "Get discovered." },
-      { title: "UNDERSTOOD", description: "Communicate clearly." },
-      { title: "TRUSTED", description: "Build credibility." },
-    ],
-    statement: "Practical digital solutions. Meaningful business growth.",
+    outcomes: ["Visible.", "Understood.", "Trusted."],
+    statement: "",
     primaryAction: "Let's Grow Your Business",
     secondaryAction: "Explore Our Services",
   },
