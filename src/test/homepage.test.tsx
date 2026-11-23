@@ -61,18 +61,12 @@ describe("EVCodelabs homepage", () => {
     expect(container.lastElementChild?.tagName).toBe("FOOTER");
   });
 
-  it("shows the approved hero positioning, objectives, statement, and actions", () => {
+  it("shows the hero positioning, outcomes, and actions", () => {
     renderHomepage();
 
-    expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent(
-      "Be Visible. Be Understood. Be Trusted.",
-    );
+    expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent(siteContent.hero.title);
     expect(screen.getByText(siteContent.hero.description)).toBeVisible();
-    for (const objective of siteContent.hero.objectives) {
-      expect(screen.getByRole("heading", { name: objective.title })).toBeVisible();
-      expect(screen.getByText(objective.description)).toBeVisible();
-    }
-    expect(screen.getByText(siteContent.hero.statement)).toBeVisible();
+    expect(screen.getByText(siteContent.hero.outcomes.join(" "))).toBeVisible();
     expect(screen.getByRole("button", { name: "Let's Grow Your Business" })).toBeVisible();
     expect(screen.getByRole("link", { name: "Explore Our Services" })).toHaveAttribute(
       "href",
